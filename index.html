@@ -1,13 +1,29 @@
-<script>
-    window.onload = function() {
-        var message = {
-            event: 'test publish from iframe',
-            data: {
-                'testkey': 'testvalue'
-            }
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Iframe Source Page</title>
+    <style>
+        body {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Iframe Source Page</h1>
+    <p>This is the content that will be displayed in the iframe on another site.</p>
+
+    <script>
+        window.onload = function() {
+            var message = {
+                event: 'test publish from iframe',
+                data: {
+                    'testkey': 'testvalue'
+                }
+            };
+            window.parent.postMessage("test event sent", '*');
+            window.top.postMessage("test event sent", '*');
         };
-        window.parent.postMessage("test event sent", '*');
-        window.top.postMessage("test event sent", '*');
-    };
-    console.log('iframe source page loaded');
-</script>
+        console.log('iframe source page loaded');
+    </script>
+</body>
+</html>
