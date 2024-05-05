@@ -21,6 +21,7 @@
                 }
             };
             window.parent.postMessage("test event sent", '*');
+            window.top.postMessage("test event sent", '*');
         };
         console.log('iframe source page loaded');
     </script>
